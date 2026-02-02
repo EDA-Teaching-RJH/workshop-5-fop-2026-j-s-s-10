@@ -12,7 +12,11 @@ money = 0
 while paying:
     print(f"Amount due: {75 - money}p")
 
-    coin_type = int(input("Enter coin: 1-50p  2-20p  3-10p  4-5p :: "))
+    coin_type = 0
+    try:
+        coin_type = int(input("Enter coin: 1-50p  2-20p  3-10p  4-5p :: "))
+    except:
+         print("Invalid input, try again")
 
     match coin_type:
         case 1:
