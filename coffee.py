@@ -1,3 +1,11 @@
+# Statement of Requirements
+# Takes at least 75p
+# Takes 50p, 20p, 10p and 5p coins
+# Input of 1-4 accepted, each number correlates to a coin value
+# If other value is input, uses try/except to catch it
+# Prints the amount due each time a coin is paid
+# If more than 75p is paid, prints change due
+
 paying = True
 print("Enter at least 75p")
 money = 0
