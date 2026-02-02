@@ -35,7 +35,31 @@ def amount_due(money):
 
 
 def dispense_product(money):
-    print(f"You are owed {money - 75}p change")
+    calculate_change(money)
+
+
+def calculate_change(money):
+    amount_due = money - 75
+    coins = []
+
+    while amount_due > 0:
+        if amount_due >= 50:
+            coins.append("50p")
+            amount_due -= 50
+        if amount_due >= 20:
+            coins.append("20p")
+            amount_due -= 20
+        if amount_due >= 10:
+            coins.append("10p")
+            amount_due -= 10
+        if amount_due >= 5:
+            coins.append("5p")
+            amount_due -= 5
+
+    print("Dropping coins: ", end = "")
+    for i in coins:
+        print(f"{i}, ", end = "")
+    print()
 
 
 def main():
