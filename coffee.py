@@ -6,18 +6,17 @@
 # Prints the amount due each time a coin is paid
 # If more than 75p is paid, prints change due
 
-paying = True
-print("Enter at least 75p")
-money = 0
-while paying:
-    print(f"Amount due: {75 - money}p")
-
+def pay_coin():
     coin_type = 0
     try:
         coin_type = int(input("Enter coin: 1-50p  2-20p  3-10p  4-5p :: "))
     except:
-         print("Invalid input, try again")
+        print("Invalid input, try again")
 
+    return coin_type
+
+
+def update_total(money, coin_type):
     match coin_type:
         case 1:
             money += 50
@@ -28,6 +27,23 @@ while paying:
         case 4:
             money += 5
 
-    if money >= 75:
-        paying = False
-        print(f"You are owed {money - 75}p change")
+    return money
+
+
+def amount_due(money):
+    return f"Amount due: {75 - money}"
+
+
+def dispense_product(money):
+    print(f"You are owed {money - 75}p change")
+
+
+def main():
+    money = 0
+    while money < 75:
+        print(amount_due(money))
+        money = update_total(money, pay_coin())
+    dispense_product(money)
+
+
+main()
